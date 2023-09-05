@@ -1,0 +1,132 @@
+Guvi Zen class DataBase query files
+
+-------------------------------------------------
+-- creating student-info table-- 
+
+create table `studentInfo` (
+    studentId int primary key auto_increment,
+    studentName VARCHAR(255) NOT NULL,
+    mobileNumber VARCHAR(255) UNIQUE,
+    eMail VARCHAR(255) UNIQUE,
+    mentorName VARCHAR(255) NOT NULL,
+    batchId int not null,
+    batchName VARCHAR(255) NOT NULL,
+    FOREIGN KEY (batchId) REFERENCES `batchInfo`(batchId)
+);
+
+select * from `studentInfo`;
+-----------------------------------------------
+-- inserting values to the studentInfo table --
+
+insert into `studentInfo` (
+studentName, 
+mobileNumber,  
+eMail, 
+mentorName,
+batchId,
+batchName
+) 
+values (
+'AnandhKumar',  
+'8046853906', 
+'ak@gmail.com', 
+'Manikandan',
+'1' 
+'B49Tamil' 
+);
+
+select * from `studentInfo`;
+----------------------------------------------
+-- creating task info table --
+
+create table `taskInfo` (
+taskId int primary key auto_increment,
+taskName varchar(255) unique,
+studentId int,
+mentorName varchar(25) ,
+batchName varchar(50),
+FOREIGN KEY (studentId) REFERENCES `studentInfo`(studentId)
+);
+
+select * from `taskInfo`;
+----------------------------------------------
+-- inserting values to the taskInfo table --
+
+insert into `taskInfo`(
+taskName,
+studentId,
+mentorName,
+batchName
+)
+values (
+'task1',
+'1',
+'Manikandan',
+'B49Tamil'
+);
+
+select * from `taskInfo`;
+----------------------------------------------
+-- creating mentorInfo table --
+
+create table `mentorInfo` (
+mentorId int primary key auto_increment,
+mentorName varchar(50)not null,
+eMail varchar(50) unique not null,
+contactNo varchar(15) unique not null,
+assignedBatch varchar(100) not null
+);
+
+select * from `mentorInfo`;
+----------------------------------------------
+-- inserting values into mentorInfo table --
+
+insert into `mentorInfo`(
+mentorName,
+eMail,
+contactNo,
+assignedBatch
+)
+values(
+'Manikandan',
+'ma@gmail.com',
+'8042589306',
+'B49Tamil'
+);
+
+select * from `mentorInfo`;
+----------------------------------------------
+-- creating batchInfo table --
+
+create table `batchInfo` (
+batchId int primary key auto_increment,
+batchName varchar(255) not null,
+totalStudents int not null,
+mentorId int not null,
+foreign key (mentorId) references `mentorInfo`(mentorId)
+);
+
+select * from `batchInfo`;
+----------------------------------------------
+-- inserting values into batchInfo table --
+
+insert into `batchInfo`(
+batchName,
+totalStudents,
+mentorId
+)
+values(
+'B49Tamil',
+'58',
+'10'
+);
+
+select * from `batchInfo`;
+----------------------------------------------
+-- displaying all table details --
+
+select * from `studentInfo`;
+select * from `taskInfo`;
+select * from `batchInfo`;
+select * from `mentorInfo`;
+--------------------------------------------------
