@@ -107,7 +107,7 @@ This guide provides step-by-step instructions and guidelines for creating a data
 ## Sharing and Collaboration
 
 8. **Share Your Diagram:**
-    - If working with a team, share your diagram by clicking the "Share" button and providing collaborators with the link.
+    - Share your diagram by clicking the "Share" button and providing collaborators with the link.
     - Click here to view this db design: [Guvi Zen Class Database Model](https://dbdiagram.io/d/64fa042602bd1c4a5e2a058d)
 
 Happy modeling!
